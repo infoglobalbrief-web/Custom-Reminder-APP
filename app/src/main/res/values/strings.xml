@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Remindly</string>
+    <string name="app_tagline">Remember what matters.</string>
+    <string name="splash_wordmark">REMINDLY</string>
+
+    <!-- Onboarding (PRD §11) -->
+    <string name="onboarding_1_title">Remember everything.</string>
+    <string name="onboarding_1_body">Your personal reminder assistant. Never forget an important moment again.</string>
+    <string name="onboarding_2_title">Remind me my way.</string>
+    <string name="onboarding_2_body">Daily · Weekly · Custom · Before event · Birthday — alerts exactly when you want them.</string>
+    <string name="onboarding_3_title">Stay on top of life.</string>
+    <string name="onboarding_3_body">Tasks, birthdays, appointments and important dates — all in one beautiful place.</string>
+    <string name="get_started">Get Started</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+
+    <!-- Login (PRD §12–15) -->
+    <string name="login_title">Rememberly</string>
+    <string name="login_subtitle">Your life, remembered.</string>
+    <string name="continue_google">Continue with Google</string>
+    <string name="continue_apple">Continue with Apple</string>
+    <string name="continue_email">Continue with Email</string>
+    <string name="continue_guest">Continue as Guest</string>
+    <string name="or_divider">or</string>
+
+    <!-- Profile setup (PRD §16) -->
+    <string name="profile_welcome">Welcome, %1$s</string>
+    <string name="profile_personalize">Let\'s personalize your reminders.</string>
+    <string name="profile_name">Your name</string>
+    <string name="profile_default_time">Default reminder time</string>
+    <string name="profile_timezone">Timezone</string>
+    <string name="continue_label">Continue</string>
+
+    <!-- Permissions (PRD §17, §58) -->
+    <string name="permissions_title">Make reminders reliable</string>
+    <string name="permissions_notif_title">Notifications</string>
+    <string name="permissions_notif_body">Required for reminders to reach you.</string>
+    <string name="permissions_alarm_title">Exact alarms</string>
+    <string name="permissions_alarm_body">Used for precise reminder timing.</string>
+    <string name="permissions_battery_title">Battery settings</string>
+    <string name="permissions_battery_body">Recommended on Android so reminders fire on time.</string>
+    <string name="enable_notifications">Enable Notifications</string>
+
+    <!-- Navigation (PRD §9) -->
+    <string name="nav_home">Home</string>
+    <string name="nav_tasks">Tasks</string>
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_people">People</string>
+    <string name="nav_more">More</string>
+    <string name="add_reminder">Add reminder</string>
+
+    <!-- Home (PRD §18–21, §27) -->
+    <string name="today_progress">TODAY</string>
+    <string name="completed_count">%1$d / %2$d completed</string>
+    <string name="next">NEXT</string>
+    <string name="todays_tasks">TODAY</string>
+    <string name="greeting_morning">Good morning</string>
+    <string name="greeting_afternoon">Good afternoon</string>
+    <string name="greeting_evening">Good evening</string>
+
+    <!-- Tasks (PRD §30–31) -->
+    <string name="seg_today">Today</string>
+    <string name="seg_upcoming">Upcoming</string>
+    <string name="seg_completed">Completed</string>
+    <string name="morning">Morning</string>
+    <string name="afternoon">Afternoon</string>
+    <string name="evening">Evening</string>
+
+    <!-- Quick add (PRD §22) -->
+    <string name="new_reminder">New Reminder</string>
+    <string name="what_to_remember">What do you need to remember?</string>
+    <string name="quick_title_hint">Finish proposal…</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="more_options">More options</string>
+    <string name="create_reminder">Create Reminder</string>
+
+    <!-- Advanced create (PRD §23–24) -->
+    <string name="create_reminder_title">Create Reminder</string>
+    <string name="edit_reminder_title">Edit Reminder</string>
+    <string name="field_title">Title</string>
+    <string name="field_description">Description</string>
+    <string name="section_when">WHEN</string>
+    <string name="section_repeat">REPEAT</string>
+    <string name="section_alerts">ALERTS</string>
+    <string name="section_alarm">ALARM</string>
+    <string name="section_organize">ORGANIZE</string>
+    <string name="start_date">Start date</string>
+    <string name="start_time">Start time</string>
+    <string name="end_date">End date</string>
+    <string name="save_reminder">Save Reminder</string>
+    <string name="repeat_never">Never</string>
+    <string name="repeat_daily">Daily</string>
+    <string name="repeat_weekdays">Weekdays</string>
+    <string name="repeat_weekly">Weekly</string>
+    <string name="repeat_monthly">Monthly</string>
+    <string name="repeat_yearly">Yearly</string>
+    <string name="repeat_custom">Custom</string>
+    <string name="sound">Sound</string>
+    <string name="vibration">Vibration</string>
+    <string name="snooze_label">Snooze</string>
+    <string name="priority">Priority</string>
+    <string name="category">Category</string>
+    <string name="tags">Tags</string>
+    <string name="add_alert">Add alert</string>
+
+    <!-- Detail (PRD §32) -->
+    <string name="reminder_detail">Reminder</string>
+    <string name="edit_reminder">Edit Reminder</string>
+    <string name="no_end_date">No end date</string>
+    <string name="every_day">Every day</string>
+
+    <!-- Birthdays / People (PRD §25–28) -->
+    <string name="people">People</string>
+    <string name="birthdays">Birthdays</string>
+    <string name="add_birthday">Add Birthday</string>
+    <string name="add_person">Add Person</string>
+    <string name="name_label">Name</string>
+    <string name="relationship">Relationship</string>
+    <string name="birthday_date">Birthday</string>
+    <string name="remind_me">REMIND ME</string>
+    <string name="remind_start">Start</string>
+    <string name="days_before">%1$d days before</string>
+    <string name="reminder_time">Time</string>
+    <string name="repeat_label">Repeat</string>
+    <string name="stop_label">Stop</string>
+    <string name="birthday_day_notification">Birthday-day notification</string>
+    <string name="save_birthday">Save Birthday</string>
+    <string name="view_reminder">View Reminder</string>
+    <string name="days_left">%1$d days</string>
+    <string name="today_exclaim">TODAY!</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="call">Call</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="birthday_message">Birthday Message</string>
+
+    <!-- Calendar (PRD §29) -->
+    <string name="calendar">Calendar</string>
+
+    <!-- More (PRD §33) -->
+    <string name="more">More</string>
+    <string name="account_sync">Account &amp; Sync</string>
+    <string name="templates">Templates</string>
+    <string name="statistics">Statistics</string>
+    <string name="notification_history">Notification History</string>
+    <string name="appearance">Appearance</string>
+    <string name="notifications_setting">Notifications</string>
+    <string name="sound_vibration">Sound &amp; Vibration</string>
+    <string name="widgets">Widgets</string>
+    <string name="categories">Categories</string>
+    <string name="backup_sync">Backup &amp; Sync</string>
+    <string name="privacy">Privacy</string>
+    <string name="about">About</string>
+    <string name="theme_system">System default</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="guest_account">Guest Account</string>
+    <string name="logout">Log out</string>
+    <string name="delete_account">Delete account</string>
+
+    <!-- Search (PRD §37) -->
+    <string name="search_hint">Search reminders…</string>
+
+    <!-- Empty / error states (PRD §63–64) -->
+    <string name="empty_day_title">Nothing planned</string>
+    <string name="empty_day_body">Your day is clear.</string>
+    <string name="empty_birthday_title">No birthdays yet.</string>
+    <string name="empty_birthday_body">Add people you never want to forget.</string>
+    <string name="empty_tasks_title">No tasks here</string>
+    <string name="empty_tasks_body">Tap + to create your first reminder.</string>
+    <string name="error_save">We couldn\'t save this reminder. Please try again.</string>
+    <string name="notifications_disabled_title">Notifications are disabled</string>
+    <string name="notifications_disabled_body">Reminders are saved, but they can\'t alert you until notifications are enabled.</string>
+    <string name="enable_notifications_action">Enable Notifications</string>
+
+    <!-- Actions -->
+    <string name="action_done">DONE</string>
+    <string name="action_snooze">SNOOZE</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_complete">Complete</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete_reminder">Delete reminder</string>
+    <string name="delete_confirm_body">This reminder will be removed permanently.</string>
+    <string name="duplicate">Duplicate</string>
+    <string name="archive">Archive</string>
+    <string name="skip_occurrence">Skip</string>
+    <string name="snooze_minutes">%1$d minutes</string>
+
+    <!-- Notification channels -->
+    <string name="channel_reminders">Reminders</string>
+    <string name="channel_reminders_desc">Fires when a reminder is due</string>
+    <string name="channel_birthdays">Birthdays</string>
+    <string name="channel_birthdays_desc">Birthday countdowns and birthday-day alerts</string>
+    <string name="notification_channel_error">Couldn\'t prepare notifications.</string>
+
+    <!-- Widget (PRD §34) -->
+    <string name="widget_next_reminder">NEXT REMINDER</string>
+    <string name="widget_nothing">Nothing scheduled</string>
+</resources>

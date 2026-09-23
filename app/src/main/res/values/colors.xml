@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Design tokens from PRD §2 (light palette) -->
+    <color name="purple_primary">#6658E8</color>
+    <color name="purple_primary_dark">#5144C9</color>
+    <color name="purple_secondary">#A77AF3</color>
+    <color name="accent_green">#7BC99A</color>
+    <color name="bg_light">#F4F1FF</color>
+    <color name="card_white">#FFFFFF</color>
+    <color name="text_dark">#17152B</color>
+    <color name="text_secondary">#77758A</color>
+    <color name="bg_dark">#11101B</color>
+    <color name="card_dark">#211F30</color>
+    <color name="primary_bright">#8B7CFF</color>
+    <color name="text_on_dark">#F7F5FF</color>
+    <color name="secondary_on_dark">#AAA6BD</color>
+    <color name="ic_launcher_background">#6658E8</color>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Splash wordmark icon — PRD §10: minimal ✦ REMINDLY -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Soft glow disc -->
+    <path
+        android:fillColor="#6658E8"
+        android:pathData="M54,54m-34,0a34,34 0,1 1,68 0a34,34 0,1 1,-68 0" />
+    <path
+        android:fillColor="#A77AF3"
+        android:pathData="M54,54m-26,0a26,26 0,1 1,52 0a26,26 0,1 1,-52 0"
+        android:fillAlpha="0.55" />
+    <!-- Sparkle / star ✦ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,32 L58.5,49.5 L76,54 L58.5,58.5 L54,76 L49.5,58.5 L32,54 L49.5,49.5 Z" />
+    <!-- Small accent stars -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.85"
+        android:pathData="M74,36 L75.6,40.4 L80,42 L75.6,43.6 L74,48 L72.4,43.6 L68,42 L72.4,40.4 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.7"
+        android:pathData="M34,66 L35.2,69.3 L38.5,70.5 L35.2,71.7 L34,75 L32.8,71.7 L29.5,70.5 L32.8,69.3 Z" />
+</vector>
