@@ -53,7 +53,6 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
-import java.time.temporal.WeekFields
 
 /**
  * Calendar — PRD §29 modern floating calendar + day agenda.
@@ -125,9 +124,7 @@ fun CalendarScreen(
                 }
 
                 // Weekday header
-                val weekFields = WeekFields.of(java.time.DayOfWeek.MONDAY, 4)
                 Row(modifier = Modifier.fillMaxWidth()) {
-                    weekFields.dayOfWeek.minimalDaysInFirstWeek
                     listOf("M", "T", "W", "T", "F", "S", "S").forEach { d ->
                         Text(
                             d,

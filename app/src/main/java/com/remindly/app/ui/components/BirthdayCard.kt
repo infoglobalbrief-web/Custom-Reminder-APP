@@ -40,6 +40,7 @@ import com.remindly.app.ui.theme.PurpleSecondary
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
+import androidx.compose.ui.unit.sp
 
 /**
  * Birthday countdown card — PRD §27 (FAMILY · 37 DAYS · 30 October
@@ -70,14 +71,14 @@ fun BirthdayCard(
                         .clip(RoundedCornerShape(AppRadius.lg))
                         .background(Brush.horizontalGradient(listOf(PurplePrimary, PurpleSecondary)))
                         .padding(vertical = 14.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
+                    contentAlignment = Alignment.Center,
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
                             "TODAY!",
                             style = MaterialTheme.typography.labelLarge,
                             color = Color.White.copy(alpha = 0.9f),
-                            letterSpacing = androidx.compose.ui.unit.sp(2f),
+                            letterSpacing = 2.sp,
                         )
                         Text(
                             "${person.name}'s Birthday",
@@ -99,7 +100,7 @@ fun BirthdayCard(
                     (person.relationship.ifBlank { "Family" }).uppercase(),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    letterSpacing = androidx.compose.ui.unit.sp(1.4f),
+                    letterSpacing = 1.4.sp,
                 )
                 Spacer(Modifier.height(6.dp))
                 Row(verticalAlignment = Alignment.CenterVertically) {

@@ -56,6 +56,7 @@ private val timeFmt = DateTimeFormatter.ofPattern("h:mm a")
  * Compact task/reminder card with swipe gestures (PRD §21, §31):
  *   swipe right → Complete · swipe left → Delete · tap → Details
  */
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
 fun ReminderCard(
     title: String,

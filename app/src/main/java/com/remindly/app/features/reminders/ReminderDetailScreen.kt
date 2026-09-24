@@ -35,6 +35,7 @@ import com.remindly.app.R
 import com.remindly.app.core.di.AppContainer
 import com.remindly.app.core.domain.model.Reminder
 import com.remindly.app.core.domain.model.ReminderStatus
+import kotlinx.coroutines.flow.first
 import com.remindly.app.ui.components.GlassCard
 import com.remindly.app.ui.components.PillButton
 import com.remindly.app.ui.components.SectionHeader
@@ -246,7 +247,7 @@ fun SearchScreen(
 
     androidx.compose.runtime.LaunchedEffect(query) {
         results = if (query.isBlank()) emptyList()
-        else kotlinx.coroutines.flow.first(container.reminderRepository.search(query))
+        else container.reminderRepository.search(query).first()
     }
 
     Column(

@@ -36,7 +36,7 @@ class ReminderScheduler(private val context: Context) {
 
         fun actionRequestCode(reminderId: Long, at: LocalDateTime, action: String): Int {
             var h = reminderId.hashCode() * 31 + at.toLocalDate().toEpochDay().hashCode()
-            h = h * 31 + at.toLocalTime().toMinuteOfDay()
+            h = h * 31 + (at.hour * 60 + at.minute)
             h = h * 31 + action.hashCode()
             return h
         }

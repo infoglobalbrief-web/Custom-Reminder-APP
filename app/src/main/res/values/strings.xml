@@ -53,7 +53,6 @@
     <!-- Home (PRD §18–21, §27) -->
     <string name="today_progress">TODAY</string>
     <string name="completed_count">%1$d / %2$d completed</string>
-    <string name="next">NEXT</string>
     <string name="todays_tasks">TODAY</string>
     <string name="greeting_morning">Good morning</string>
     <string name="greeting_afternoon">Good afternoon</string>

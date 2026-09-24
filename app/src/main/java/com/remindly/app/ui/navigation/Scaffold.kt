@@ -1,6 +1,7 @@
 package com.remindly.app.ui.navigation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,7 +11,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.outlined.CalendarMonth
@@ -20,10 +23,6 @@ import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.People
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationBarItemDefaults
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -41,7 +40,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.remindly.app.ui.theme.PurplePrimary
 
-/** Destinations (PRD §9 navigation · §75 screen inventory). */
+/** Destinations (PRD section 9 navigation, section 75 screen inventory). */
 object Routes {
     const val ONBOARDING = "onboarding"
     const val LOGIN = "login"
@@ -78,11 +77,11 @@ private val tabs = listOf(
 private val tabRoutes = tabs.map { it.route }.toSet()
 
 /**
- * Bottom navigation + central elevated FAB (PRD §9):
+ * Bottom navigation + central elevated FAB (PRD section 9):
  *
  *   Home   Tasks   +   Calendar   People
  *
- * The + floats slightly above the bar.
+ * Uses plain Row/Box (no NavigationBar APIs) for maximum compatibility.
  */
 @Composable
 fun RemindlyScaffold(
@@ -94,89 +93,98 @@ fun RemindlyScaffold(
     val currentRoute = backStack?.destination?.route
     val showBar = currentRoute in tabRoutes
 
-    Scaffold(
-        containerColor = MaterialTheme.colorScheme.background,
-        bottomBar = {
-            if (showBar) {
-                Box {
-                    NavigationBar(
-                        containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.92f),
-                        tonalElevation = 0.dp,
-                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
-                    ) {
-                        tabs.take(2).forEach { tab -> NavItem(tab, currentRoute, nav) }
-                        // Center slot occupied by the floating +
-                        NavigationBarItem(
-                            selected = false,
-                            onClick = {},
-                            enabled = false,
-                            icon = { Box(Modifier.size(56.dp)) },
-                            label = null,
-                            colors = NavigationBarItemDefaults.colors(
-                                disabledIconColor = Color.Transparent,
-                            ),
-                        )
-                        tabs.drop(2).forEach { tab -> NavItem(tab, currentRoute, nav) }
-                    }
-                    // Elevated central FAB (PRD §9)
-                    Box(
-                        modifier = Modifier
-                            .align(Alignment.TopCenter)
-                            .padding(top = 0.dp)
-                            .size(58.dp)
-                            .shadow(14.dp, CircleShape, ambientColor = PurplePrimary, spotColor = PurplePrimary)
-                            .clip(CircleShape)
-                            .background(Brush.linearGradient(listOf(PurplePrimary, Color(0xFF8B7CFF))))
-                            .androidClickable { onAddClick() },
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Icon(Icons.Filled.Add, contentDescription = "Add reminder", tint = Color.White, modifier = Modifier.size(30.dp))
-                    }
+    val bottomPadding = if (showBar) 76.dp else 0.dp
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        content(
+            PaddingValues(top = 0.dp, bottom = bottomPadding)
+        )
+
+        if (showBar) {
+            // Bar background
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp, vertical = 8.dp)
+                    .clip(RoundedCornerShape(28.dp))
+                    .background(MaterialTheme.colorScheme.surface.copy(alpha = 0.96f))
+                    .padding(horizontal = 8.dp, vertical = 6.dp),
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                ) {
+                    NavItem(tabs[0], currentRoute, nav)
+                    NavItem(tabs[1], currentRoute, nav)
+
+                    // Center spacer for the floating +
+                    Box(modifier = Modifier.size(56.dp))
+
+                    NavItem(tabs[2], currentRoute, nav)
+                    NavItem(tabs[3], currentRoute, nav)
+                    NavItem(tabs[4], currentRoute, nav)
                 }
             }
-        },
-    ) { padding -> content(padding) }
-}
 
-private fun Modifier.androidClickable(onClick: () -> Unit): Modifier =
-    androidx.compose.foundation.clickable(
-        interactionSource = androidx.compose.foundation.interaction.MutableInteractionSource(),
-        indication = null,
-        onClick = onClick,
-    )
+            // Elevated central FAB (PRD section 9)
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 22.dp)
+                    .size(58.dp)
+                    .shadow(14.dp, CircleShape, ambientColor = PurplePrimary, spotColor = PurplePrimary)
+                    .clip(CircleShape)
+                    .background(Brush.linearGradient(listOf(PurplePrimary, Color(0xFF8B7CFF))))
+                    .clickable(onClick = onAddClick),
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    Icons.Filled.Add,
+                    contentDescription = "Add reminder",
+                    tint = Color.White,
+                    modifier = Modifier.size(30.dp),
+                )
+            }
+        }
+    }
+}
 
 @Composable
 private fun NavItem(tab: Tab, currentRoute: String?, nav: NavHostController) {
     val selected = currentRoute == tab.route
-    NavigationBarItem(
-        selected = selected,
-        onClick = {
-            if (currentRoute != tab.route) {
-                nav.navigate(tab.route) {
-                    popUpTo(nav.graph.findStartDestination().id) { saveState = true }
-                    launchSingleTop = true
-                    restoreState = true
+    val tint = if (selected) PurplePrimary else MaterialTheme.colorScheme.onSurfaceVariant
+
+    Column(
+        modifier = Modifier
+            .width(64.dp)
+            .clip(RoundedCornerShape(16.dp))
+            .clickable {
+                if (currentRoute != tab.route) {
+                    nav.navigate(tab.route) {
+                        popUpTo(nav.graph.findStartDestination().id) { saveState = true }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
                 }
             }
-        },
-        icon = {
-            Icon(tab.icon, contentDescription = tab.label, modifier = Modifier.size(22.dp))
-        },
-        label = {
-            Text(
-                tab.label,
-                style = MaterialTheme.typography.labelSmall,
-                fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
-            )
-        },
-        colors = NavigationBarItemDefaults.colors(
-            selectedIconColor = PurplePrimary,
-            selectedTextColor = PurplePrimary,
-            unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
-            unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
-            indicatorColor = PurplePrimary.copy(alpha = 0.12f),
-        ),
-    )
+            .padding(vertical = 6.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Icon(
+            tab.icon,
+            contentDescription = tab.label,
+            tint = tint,
+            modifier = Modifier.size(22.dp),
+        )
+        Text(
+            tab.label,
+            style = MaterialTheme.typography.labelSmall,
+            color = tint,
+            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+        )
+    }
 }
 
 /** Shared screen scaffold with ambient gradient background. */

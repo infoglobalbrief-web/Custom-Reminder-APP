@@ -44,6 +44,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
 import java.util.TimeZone
+import androidx.compose.foundation.clickable
 
 /**
  * Quick-add bottom sheet — PRD §22:
@@ -189,7 +190,7 @@ fun QuickAddSheet(
 }
 
 private fun Modifier.androidxClickableNoRipple(onClick: () -> Unit): Modifier =
-    androidx.compose.foundation.clickable(
+    clickable(
         interactionSource = androidx.compose.foundation.interaction.MutableInteractionSource(),
         indication = null,
         onClick = onClick,

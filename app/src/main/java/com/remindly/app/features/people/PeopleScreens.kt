@@ -55,6 +55,7 @@ import java.time.LocalDate
 import java.time.LocalTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import androidx.compose.foundation.layout.width
 
 /**
  * People / Birthdays — PRD §25–26:

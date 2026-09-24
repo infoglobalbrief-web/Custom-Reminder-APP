@@ -68,9 +68,6 @@ class NotificationHelper(private val context: Context) {
     }
 
     fun areNotificationsEnabled(): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.NAGGING) {
-            // areNotificationsEnabled exists via NotificationManagerCompat
-        }
         return androidx.core.app.NotificationManagerCompat.from(context).areNotificationsEnabled()
     }
 

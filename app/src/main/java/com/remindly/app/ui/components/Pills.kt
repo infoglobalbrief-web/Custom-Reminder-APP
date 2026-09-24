@@ -54,15 +54,18 @@ fun PillButton(
         )
     }
     val fg = if (selected || gradient) Color.White else MaterialTheme.colorScheme.onSurface
-    val border = if (selected || gradient) Color.Transparent
-    else BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.7f))
+    val stroke: BorderStroke? = if (selected || gradient) {
+        null
+    } else {
+        BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.7f))
+    }
 
     Row(
         modifier = modifier
             .shadow(if (selected || gradient) 6.dp else 0.dp, shape, ambientColor = PurplePrimary, spotColor = PurplePrimary)
             .clip(shape)
             .background(bg)
-            .let { if (border != null) it.border(border, shape) else it }
+            .then(if (stroke != null) Modifier.border(stroke, shape) else Modifier)
             .clickable(interactionSource = interaction, indication = null, enabled = enabled) { onClick() }
             .padding(contentPadding),
         verticalAlignment = Alignment.CenterVertically,

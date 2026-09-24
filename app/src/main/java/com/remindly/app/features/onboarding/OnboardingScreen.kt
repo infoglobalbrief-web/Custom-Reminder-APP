@@ -58,6 +58,7 @@ private val pages = listOf(
  * Onboarding — PRD §11: exactly 3 screens, Get Started CTA.
  * Illustration hero area ≈ 25–35% of screen (PRD §19).
  */
+@OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
 fun OnboardingScreen(onFinished: () -> Unit) {
     val pagerState = rememberPagerState(pageCount = { pages.size })

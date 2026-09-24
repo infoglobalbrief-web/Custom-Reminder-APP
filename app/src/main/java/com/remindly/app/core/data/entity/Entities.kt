@@ -84,7 +84,7 @@ data class PersonEntity(
     val phone: String? = null,
     val email: String? = null,
     val notes: String? = null,
-    // birthdays table (PRD §52) folded 1:1 for MVP (person ↦ birthday)
+    // birthdays table (PRD §52) folded 1:1 for MVP (person -> birthday)
     val birthDateEpochDay: Long? = null,
     val birthdayEnabled: Boolean = true,
     val reminderStartDays: Int = 5,
@@ -93,6 +93,7 @@ data class PersonEntity(
     val reminderFrequency: String = "DAILY",
     val birthdayDayAlert: Boolean = true,
     val createdAt: Long = System.currentTimeMillis(),
+    val updatedAt: Long = System.currentTimeMillis(),
     val deletedAt: Long? = null,
     val syncVersion: Long = 1,
     val dirty: Boolean = true,
